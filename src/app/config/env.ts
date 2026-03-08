@@ -5,6 +5,7 @@ dotenv.config()
 interface EnvConfig {
     PORT: string,
     DB_URL: string,
+    GEMINI_API_KEY: string,
     // NODE_ENV: "development" | "production"
     // BCRYPT_SALT_ROUND: string
     // JWT_ACCESS_SECRET: string
@@ -17,7 +18,7 @@ interface EnvConfig {
 }
 
 const loadEnvVariables = (): EnvConfig => {
-    const requiredEnvVariables: string[] = ["PORT", "DB_URL"];
+    const requiredEnvVariables: string[] = ["PORT", "DB_URL", "GEMINI_API_KEY",];
     // const requiredEnvVariables: string[] = ["PORT", "DB_URL", "NODE_ENV", "BCRYPT_SALT_ROUND", "JWT_ACCESS_EXPIRES", "JWT_ACCESS_SECRET", "ADMIN_PHONE", "ADMIN_PASSWORD",];
 
     requiredEnvVariables.forEach(key => {
@@ -30,6 +31,7 @@ const loadEnvVariables = (): EnvConfig => {
         PORT: process.env.PORT as string,
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         DB_URL: process.env.DB_URL!,
+        GEMINI_API_KEY: process.env.GEMINI_API_KEY as string,
         // NODE_ENV: process.env.NODE_ENV as "development" | "production",
         // BCRYPT_SALT_ROUND: process.env.BCRYPT_SALT_ROUND as string,
         // JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET as string,
