@@ -23,24 +23,26 @@ export const createFeedback = async (feedbackPayload: FeedbackInput) => {
     team: aiAnalysisResult.team,
   });
 
-      const assignedTeamEmail = Email
+      
 
-  if (assignedTeamEmail){
-    await sendEmail(
-      assignedTeamEmail as string,
-      "New Feedback Received",
-      `
-        <h2>New Feedback Submitted</h2>
-        <p><b>Name: </b>  ${name}</p>
-        <p><b>Message: </b>   ${message}</p>
-        <p><b>Category: </b>   ${aiAnalysisResult?.category}</p>
-        <p><b>Priority: </b>  ${aiAnalysisResult?.priority}</p>
-        <p><b>Sentiment: </b>  ${aiAnalysisResult?.sentiment}</p>
-        <p><b>Assigned Team: </b>  ${aiAnalysisResult?.team}</p>
-      `
-    );
+  if (Email) {
+  await sendEmail(
+    Email as string,
+    "New Feedback Received",
+    `
+      <h3>New Feedback Submitted</h3>
 
-  }
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Message:</strong> ${message}</p>
+      <p><strong>Category:</strong> ${aiAnalysisResult.category}</p>
+      <p><strong>Priority:</strong> ${aiAnalysisResult.priority}</p>
+      <p><strong>Sentiment:</strong> ${aiAnalysisResult.sentiment}</p>
+      <p><strong>Assigned Team:</strong> ${aiAnalysisResult.team}</p>
+
+      <p>Please review and take necessary action.</p>
+    `
+  );
+}
 
   return createdFeedback;
 };
