@@ -14,17 +14,12 @@ export const createFeedback = async (feedbackPayload: FeedbackInput) => {
     }
 
     const createdFeedback = await Feedback.create({
-
         name,
-
         message,
-
         category: aiAnalysisResult.category,
         priority: aiAnalysisResult.priority,
         sentiment: aiAnalysisResult.sentiment,
         team: aiAnalysisResult.team,
-
-
     });
     return createdFeedback;
 };
