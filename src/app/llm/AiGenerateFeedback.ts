@@ -3,10 +3,9 @@ import {PromptTemplate} from "@langchain/core/prompts";
 import { envVars } from "../config/env";
 
 const model = new ChatGoogleGenerativeAI({
-
- apiKey:envVars.GEMINI_API_KEY,
- model:"gemini-pro"
-
+  apiKey: process.env.GEMINI_API_KEY!,
+  model: "gemini-2.5-flash",
+  temperature: 0
 });
 
 export const AiGenerateFeedback = async(text:string)=>{

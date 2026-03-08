@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import feedbackRoutes from "./app/modules/feedback/feedback.route";
+import { globalErrorHandler } from "./app/middlewares/globalErrorHandler";
 
 
  const app = express();
@@ -29,6 +30,6 @@ app.get('/', (_req: Request, res: Response) => {
     res.send('Welcome to Headless Tech Server!');
 });
 
-// app.use(errorHandler);
+app.use(globalErrorHandler);
 
 export default app;

@@ -6,7 +6,7 @@ import Feedback from "./feedback.model";
 import { FeedbackInput } from "./feedback.validation";
 
 export const createFeedback = async (feedbackPayload: FeedbackInput) => {
-  const { name, message } = feedbackPayload;
+  const { name, message,Email } = feedbackPayload;
   const aiAnalysisResult = await AiGenerateFeedback(message);
 
   if (!aiAnalysisResult){
@@ -23,11 +23,12 @@ export const createFeedback = async (feedbackPayload: FeedbackInput) => {
     team: aiAnalysisResult.team,
   });
 
-  const teamEmail = teamEmails[aiAnalysisResult.team as keyof typeof teamEmails];
+      const assignedTeamEmail =
+    Email?.[aiAnalysisResult.team as keyof typeof Email];
 
-  if (teamEmail){
+  if (assignedTeamEmail){
     await sendEmail(
-      teamEmail,
+      assignedTeamEmail as string,
       "New Feedback Received",
       `
         <h2>New Feedback Submitted</h2>
