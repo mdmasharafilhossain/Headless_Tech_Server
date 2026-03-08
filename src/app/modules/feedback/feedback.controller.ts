@@ -37,11 +37,9 @@ export const getFeedbacks = async (req: Request,res: Response,next: NextFunction
 
     }
   if (category) {
-
       feedbackFilter.category = String(category);
     }
  if (priority) {
-
       feedbackFilter.priority = String(priority);
     }
   const feedbackList = await Feedback.find(feedbackFilter).sort({
@@ -49,9 +47,9 @@ export const getFeedbacks = async (req: Request,res: Response,next: NextFunction
       createdAt: -1,
     });
     res.status(200).json({
-
       success: true,
       data: feedbackList,
+
     });
   } catch (error){
     next(error);
