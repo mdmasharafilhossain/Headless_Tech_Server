@@ -24,12 +24,15 @@ Feedback:
 
  const chain = prompt.pipe(model);
 
- const response = await chain.invoke({
-  text
- });
+  const response = await chain.invoke({ text });
 
- const result = JSON.parse(response.content as string);
+  const raw = response.content as string;
 
- return result;
+  const cleaned = raw
+    .replace(/```json/g, "")
+    .replace(/```/g, "")
+    .trim();
+
+  return JSON.parse(cleaned);
 
 };

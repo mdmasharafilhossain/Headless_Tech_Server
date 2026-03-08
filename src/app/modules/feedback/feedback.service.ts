@@ -23,8 +23,7 @@ export const createFeedback = async (feedbackPayload: FeedbackInput) => {
     team: aiAnalysisResult.team,
   });
 
-      const assignedTeamEmail =
-    Email?.[aiAnalysisResult.team as keyof typeof Email];
+      const assignedTeamEmail = Email
 
   if (assignedTeamEmail){
     await sendEmail(
