@@ -31,12 +31,12 @@ export const createFeedback = async (feedbackPayload: FeedbackInput) => {
       "New Feedback Received",
       `
         <h2>New Feedback Submitted</h2>
-        <p><b>Name:</b>  ${name}</p>
-        <p><b>Message:</b>   ${message}</p>
-        <p><b>Category:</b>   ${aiAnalysisResult.category}</p>
-        <p><b>Priority:</b>  ${aiAnalysisResult.priority}</p>
-        <p><b>Sentiment:</b>  ${aiAnalysisResult.sentiment}</p>
-        <p><b>Assigned Team:</b>  ${aiAnalysisResult.team}</p>
+        <p><b>Name: </b>  ${name}</p>
+        <p><b>Message: </b>   ${message}</p>
+        <p><b>Category: </b>   ${aiAnalysisResult?.category}</p>
+        <p><b>Priority: </b>  ${aiAnalysisResult?.priority}</p>
+        <p><b>Sentiment: </b>  ${aiAnalysisResult?.sentiment}</p>
+        <p><b>Assigned Team: </b>  ${aiAnalysisResult?.team}</p>
       `
     );
 
