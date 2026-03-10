@@ -5,18 +5,18 @@ import cookieParser from "cookie-parser";
 
 import feedbackRoutes from "./app/modules/feedback/feedback.route";
 import { globalErrorHandler } from "./app/middlewares/globalErrorHandler";
+import { envVars } from "./app/config/env";
 
 
  const app = express();
 
-// Middlewares
-// app.use(
-//   cors({
-//     origin: 'http://localhost:5173',
-//     // origin: 'https://digital-wallet-client-beta.vercel.app',
-//      credentials: true,
-//    })
-// );
+
+app.use(
+  cors({
+    origin: [envVars.CLIENT_URL, envVars.CLIENT_URL_PROD],
+     credentials: true,
+   })
+);
 
 app.use(express.json());
 app.use(cookieParser());

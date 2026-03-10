@@ -8,20 +8,13 @@ interface EnvConfig {
     GEMINI_API_KEY: string,
     EMAIL_USER: string,
     EMAIL_PASS: string,
-    // NODE_ENV: "development" | "production"
-    // BCRYPT_SALT_ROUND: string
-    // JWT_ACCESS_SECRET: string
-    // JWT_ACCESS_EXPIRES: string
-   
-    // ADMIN_PHONE: string
-    // ADMIN_PASSWORD: string
-   
-
+    CLIENT_URL: string,
+    CLIENT_URL_PROD: string,
 }
 
 const loadEnvVariables = (): EnvConfig => {
-    const requiredEnvVariables: string[] = ["PORT", "DB_URL", "GEMINI_API_KEY", "EMAIL_USER", "EMAIL_PASS"];
-    // const requiredEnvVariables: string[] = ["PORT", "DB_URL", "NODE_ENV", "BCRYPT_SALT_ROUND", "JWT_ACCESS_EXPIRES", "JWT_ACCESS_SECRET", "ADMIN_PHONE", "ADMIN_PASSWORD",];
+    const requiredEnvVariables: string[] = ["PORT", "DB_URL", "GEMINI_API_KEY", "EMAIL_USER", "EMAIL_PASS", "CLIENT_URL", "CLIENT_URL_PROD"];
+    
 
     requiredEnvVariables.forEach(key => {
         if (!process.env[key]) {
@@ -36,14 +29,8 @@ const loadEnvVariables = (): EnvConfig => {
         GEMINI_API_KEY: process.env.GEMINI_API_KEY as string,
         EMAIL_USER: process.env.EMAIL_USER as string,
         EMAIL_PASS: process.env.EMAIL_PASS as string,
-        // NODE_ENV: process.env.NODE_ENV as "development" | "production",
-        // BCRYPT_SALT_ROUND: process.env.BCRYPT_SALT_ROUND as string,
-        // JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET as string,
-        // JWT_ACCESS_EXPIRES: process.env.JWT_ACCESS_EXPIRES as string,
-      
-        // ADMIN_PHONE: process.env.ADMIN_PHONE as string,
-        // ADMIN_PASSWORD: process.env.ADMIN_PASSWORD as string,
-    
+        CLIENT_URL: process.env.CLIENT_URL as string,
+        CLIENT_URL_PROD: process.env.CLIENT_URL_PROD as string,
     }
 }
 
