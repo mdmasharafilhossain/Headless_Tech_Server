@@ -7,19 +7,17 @@ export const createFeedback = async (req: Request,res: Response,next: NextFuncti
   try { const feedbackPayload = req.body;
     if (!feedbackPayload){
 
-      throw AppError.badRequest("Feedback payload is required");
+       throw AppError.badRequest("Feedback payload is required");
     }
     const createdFeedback = await feedbackService.createFeedback(
-
       feedbackPayload
-
     );
 
-    res.status(201).json({
+      res.status(201).json({
       success: true,
       data: createdFeedback,
     });
-  } catch (error) {
+  } catch(error){
     next(error);
   }
 };

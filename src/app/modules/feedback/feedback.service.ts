@@ -1,4 +1,3 @@
-import { teamEmails } from "../../config/teamEmail";
 import { AiGenerateFeedback } from "../../llm/AiGenerateFeedback";
 import { AppError } from "../../utilis/AppError";
 import { sendEmail } from "../../utilis/sendEmail";
