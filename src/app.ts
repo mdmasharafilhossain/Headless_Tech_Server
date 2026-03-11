@@ -1,8 +1,6 @@
 import express, { type Request, type Response } from "express";
-import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
 import feedbackRoutes from "./app/modules/feedback/feedback.route";
 import { globalErrorHandler } from "./app/middlewares/globalErrorHandler";
 import { envVars } from "./app/config/env";
@@ -20,7 +18,7 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
-// if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
+
 
 
 app.use("/api/feedback",feedbackRoutes);
