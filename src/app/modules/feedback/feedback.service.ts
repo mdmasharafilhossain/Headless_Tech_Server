@@ -7,9 +7,7 @@ import { FeedbackInput } from "./feedback.validation";
 export const createFeedback = async (feedbackPayload: FeedbackInput) => {
   const { name, message,Email } = feedbackPayload;
   const aiAnalysisResult = await AiGenerateFeedback(message);
-
   if (!aiAnalysisResult){
-
      throw AppError.internalError("Failed to analyze feedback");
 
   }
@@ -42,6 +40,5 @@ export const createFeedback = async (feedbackPayload: FeedbackInput) => {
     `
   );
 }
-
   return createdFeedback;
 };
